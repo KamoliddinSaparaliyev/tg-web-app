@@ -1,8 +1,24 @@
+import { useEffect } from 'react';
+import Header from './components/Header/Header.jsx';
+import Button from './components/Button/Button.jsx';
+import './App.css';
+
 function App() {
+    const tg = window.Telegram.WebApp;
+
+    useEffect(() => {
+        tg.ready()
+    })
+
+    const onClose = ( ) => {
+        tg.close()
+    }
+
     return (
-        <div>
-            <h1>App</h1>
-        </div>
+        <>
+            <Header/>
+            <Button onClick={onClose} text={'close'}/>
+        </>
     );
 }
 
